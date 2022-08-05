@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  esapp:
+    image: ${DOCKER_REGISTRY-}esapp
+    build:
+      context: .
+      dockerfile: ESApp/Dockerfile
+    depends_on:
+      - db
+    networks:
+      - default
+
+  db:
+    image: postgres
+    container_name: pgdatabase
+    environment:
+      POSTGRES_PASSWORD: PG42069lmao
+      POSTGRES_USER: pgdev
+      POSTGRES_DB: pges
+    ports:
+      - "5999:5432"
+    networks:
+      - default
+      
+networks:
+  default:
+    driver: bridge
+    name: esdefault
