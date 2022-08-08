@@ -6,11 +6,11 @@ namespace ESApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class DocumentsController : ControllerBase
     {
         private readonly IDocumentStore store;
 
-        public UsersController(IDocumentStore store)
+        public DocumentsController(IDocumentStore store)
         {
             this.store = store;
         }
