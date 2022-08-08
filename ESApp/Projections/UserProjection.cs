@@ -14,5 +14,16 @@ namespace ESApp.Projections
         {
             Permissions.Add(permission.description);
         }
+
+        public void Apply(CreateUser createEvent)
+        {
+            FirstName = createEvent.FirstName;
+            LastName = createEvent.LastName;
+        }
+
+        public void Apply(SetDepartment departmentEvent)
+        {
+            Department = departmentEvent.Department;
+        }
     }
 }
